@@ -124,7 +124,12 @@ export default function LandingPage() {
             <Button size="lg" onClick={enterPlatform} className="bg-secondary text-secondary-foreground hover:bg-secondary/90 font-bold text-base px-8 py-6 rounded-xl shadow-lg">
               Log In <ArrowRight className="ml-2 h-5 w-5" />
             </Button>
-            <Button size="lg" variant="outline" className="border-primary-foreground/30 text-primary-foreground hover:bg-primary-foreground/10 font-semibold text-base px-8 py-6 rounded-xl" asChild>
+            <Button
+              size="lg"
+              variant="outline"
+              className="border-primary/30 text-primary hover:bg-primary/10 font-semibold text-base px-8 py-6 rounded-xl"
+              asChild
+            >
               <a href="#process">See How It Works</a>
             </Button>
           </motion.div>

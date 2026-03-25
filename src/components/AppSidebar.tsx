@@ -1,13 +1,15 @@
-import { LayoutDashboard, Package, Users, Settings2, CheckCircle, DollarSign, Shield, ScrollText } from "lucide-react";
+import { LayoutDashboard, Package, Users, Settings2, CheckCircle, DollarSign, Shield, ScrollText, LogOut } from "lucide-react";
 import { NavLink } from "@/components/NavLink";
-import { useLocation } from "react-router-dom";
+import { useLocation, useNavigate } from "react-router-dom";
 import {
   Sidebar, SidebarContent, SidebarGroup, SidebarGroupContent, SidebarGroupLabel,
   SidebarMenu, SidebarMenuButton, SidebarMenuItem, SidebarHeader, useSidebar,
+  SidebarFooter,
 } from "@/components/ui/sidebar";
+import { useApp } from "@/store/AppContext";
 
 const navItems = [
-  { title: "Dashboard", url: "/", icon: LayoutDashboard },
+  { title: "Dashboard", url: "/dashboard", icon: LayoutDashboard },
   { title: "Demands", url: "/demands", icon: Package },
   { title: "BDSP Marketplace", url: "/marketplace", icon: Users },
   { title: "Assignments", url: "/assignments", icon: Settings2 },
@@ -20,7 +22,13 @@ const navItems = [
 export function AppSidebar() {
   const { state } = useSidebar();
   const collapsed = state === "collapsed";
-  const location = useLocation();
+  const { logout } = useApp();
+  const navigate = useNavigate();
+
+  const handleLogout = () => {
+    logout();
+    navigate("/");
+  };
 
   return (
     <Sidebar collapsible="icon" className="border-r-0">
@@ -53,7 +61,7 @@ export function AppSidebar() {
                   <SidebarMenuButton asChild>
                     <NavLink
                       to={item.url}
-                      end={item.url === "/"}
+                      end={item.url === "/dashboard"}
                       className="text-sidebar-foreground/70 hover:text-sidebar-foreground hover:bg-sidebar-accent transition-colors"
                       activeClassName="bg-sidebar-accent text-sidebar-primary font-semibold"
                     >
@@ -67,6 +75,19 @@ export function AppSidebar() {
           </SidebarGroupContent>
         </SidebarGroup>
       </SidebarContent>
+      <SidebarFooter className="p-4 border-t border-sidebar-border/50">
+        <SidebarMenu>
+          <SidebarMenuItem>
+            <SidebarMenuButton 
+              onClick={handleLogout}
+              className="text-destructive hover:text-destructive hover:bg-destructive/10 transition-colors w-full flex items-center gap-2"
+            >
+              <LogOut className="h-4 w-4 shrink-0" />
+              {!collapsed && <span className="font-medium">Sign Out</span>}
+            </SidebarMenuButton>
+          </SidebarMenuItem>
+        </SidebarMenu>
+      </SidebarFooter>
     </Sidebar>
   );
 }

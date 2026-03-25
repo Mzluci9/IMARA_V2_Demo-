@@ -99,6 +99,9 @@ interface AppContextType {
   rejectQA: (assignmentId: string) => void;
   triggerPayment: (assignmentId: string) => void;
   overrideStatus: (demandId: string, status: DemandStatus) => void;
+  isAuthenticated: boolean;
+  login: (email: string, password: string) => boolean;
+  logout: () => void;
 }
 
 const AppContext = createContext<AppContextType | null>(null);
@@ -112,6 +115,9 @@ export function AppProvider({ children }: { children: ReactNode }) {
   const [bdsps, setBdsps] = useState<BDSP[]>(INITIAL_BDSPS);
   const [assignments, setAssignments] = useState<Assignment[]>(INITIAL_ASSIGNMENTS);
   const [events, setEvents] = useState<EventLog[]>(INITIAL_EVENTS);
+  const [isAuthenticated, setIsAuthenticated] = useState<boolean>(() => {
+    return localStorage.getItem("imara_auth") === "true";
+  });
 
   const addEvent = useCallback((actor: string, action: string, details: string, demandId?: string, assignmentId?: string) => {
     setEvents(prev => [{ id: genId("e"), timestamp: now(), actor, action, details, demandId, assignmentId }, ...prev]);
@@ -190,8 +196,29 @@ export function AppProvider({ children }: { children: ReactNode }) {
     addEvent("Admin", "Status Override", `Demand ${demandId} → ${status}`, demandId);
   }, [addEvent]);
 
+  const login = useCallback((email: string, password: string) => {
+    if (email === "imarauser@platform.com" && password === "password123") {
+      setIsAuthenticated(true);
+      localStorage.setItem("imara_auth", "true");
+      addEvent("System", "Login Success", `User ${email} logged in`);
+      return true;
+    }
+    return false;
+  }, [addEvent]);
+
+  const logout = useCallback(() => {
+    setIsAuthenticated(false);
+    localStorage.removeItem("imara_auth");
+    addEvent("System", "Logout", "User logged out");
+  }, [addEvent]);
+
   return (
-    <AppContext.Provider value={{ demands, bdsps, assignments, events, createDemand, validateDemand, matchBdsp, assignBdsp, submitDelivery, approveQA, rejectQA, triggerPayment, overrideStatus }}>
+    <AppContext.Provider value={{
+      demands, bdsps, assignments, events,
+      createDemand, validateDemand, matchBdsp, assignBdsp,
+      submitDelivery, approveQA, rejectQA, triggerPayment, overrideStatus,
+      isAuthenticated, login, logout
+    }}>
       {children}
     </AppContext.Provider>
   );

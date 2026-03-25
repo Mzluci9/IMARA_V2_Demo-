@@ -24,7 +24,7 @@ const processSteps = [
   { icon: Cpu, title: "Smart Matching", desc: "AI-powered engine matches demands to certified BDSPs based on capacity, location, and performance." },
   { icon: Truck, title: "Service Delivery", desc: "Assigned BDSPs execute services on-ground with geo-tagged, time-stamped evidence collection." },
   { icon: ShieldCheck, title: "Quality Verification", desc: "Multi-layer QA process validates delivery evidence against predefined compliance checklists." },
-  { icon: Wallet, title: "Performance-Based Payment", desc: "Payments are triggered only after verified delivery — ensuring accountability at every step." },
+  { icon: Wallet, title: "Performance-Based Payment", desc: "Payments are triggered only after verified delivery ensuring accountability at every step." },
 ];
 
 const valueCards = [
@@ -118,7 +118,7 @@ export default function LandingPage() {
             How IMARA Works
           </motion.h1>
           <motion.p initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.6, delay: 0.25 }} className="mt-5 text-primary-foreground/80 text-lg md:text-xl max-w-2xl mx-auto font-light">
-            From demand → delivery → impact → payment — a closed-loop system for accountable business development services.
+            From demand → delivery → impact → payment → a closed-loop system for accountable business development services.
           </motion.p>
           <motion.div initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.6, delay: 0.4 }} className="mt-10 flex flex-col sm:flex-row gap-4 justify-center">
             <Button size="lg" onClick={enterPlatform} className="bg-secondary text-secondary-foreground hover:bg-secondary/90 font-bold text-base px-8 py-6 rounded-xl shadow-lg">
@@ -254,14 +254,14 @@ export default function LandingPage() {
           <p className="text-secondary font-heading font-bold text-sm tracking-widest uppercase mb-2">Trusted Infrastructure</p>
           <h2 className="font-heading font-extrabold text-3xl md:text-4xl text-foreground mb-6">Built on Trust and Standards</h2>
           <p className="text-muted-foreground max-w-2xl mx-auto mb-12 leading-relaxed">
-            IMARA provides an institutional-grade execution platform with complete audit trails, compliance verification, and performance-based disbursement — designed for governments, development partners, and impact-driven organizations.
+            IMARA provides an institutional-grade execution platform with complete audit trails, compliance verification, and performance-based disbursement designed for governments, development partners, and impact-driven organizations.
           </p>
           <div className="rounded-2xl border border-border bg-card shadow-2xl overflow-hidden">
             <div className="h-8 bg-primary flex items-center px-4 gap-1.5">
               <div className="w-2.5 h-2.5 rounded-full bg-destructive/80" />
               <div className="w-2.5 h-2.5 rounded-full bg-warning/80" />
               <div className="w-2.5 h-2.5 rounded-full bg-success/80" />
-              <span className="text-primary-foreground/60 text-[10px] ml-3 font-mono">IMARA BD Marketplace — Dashboard</span>
+              <span className="text-primary-foreground/60 text-[10px] ml-3 font-mono">IMARA BD Marketplace Dashboard</span>
             </div>
             <div className="p-8 bg-gradient-to-br from-card to-muted/30">
               <div className="grid grid-cols-4 gap-4 mb-6">

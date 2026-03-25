@@ -1,0 +1,78 @@
+@import url('https://fonts.googleapis.com/css2?family=Raleway:wght@400;500;600;700;800&family=Montserrat:wght@300;400;500;600;700&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    --background: 195 8% 96%;
+    --foreground: 195 50% 8%;
+
+    --card: 0 0% 100%;
+    --card-foreground: 195 50% 8%;
+
+    --popover: 0 0% 100%;
+    --popover-foreground: 195 50% 8%;
+
+    --primary: 191 96% 16%;
+    --primary-foreground: 0 0% 100%;
+
+    --secondary: 25 83% 53%;
+    --secondary-foreground: 0 0% 100%;
+
+    --muted: 200 10% 92%;
+    --muted-foreground: 200 10% 40%;
+
+    --accent: 191 96% 16%;
+    --accent-foreground: 0 0% 100%;
+
+    --destructive: 0 84% 60%;
+    --destructive-foreground: 0 0% 100%;
+
+    --border: 200 15% 88%;
+    --input: 200 15% 88%;
+    --ring: 191 96% 16%;
+
+    --radius: 0.75rem;
+
+    --sidebar-background: 195 50% 8%;
+    --sidebar-foreground: 200 10% 85%;
+    --sidebar-primary: 25 83% 53%;
+    --sidebar-primary-foreground: 0 0% 100%;
+    --sidebar-accent: 195 40% 14%;
+    --sidebar-accent-foreground: 200 10% 90%;
+    --sidebar-border: 195 30% 18%;
+    --sidebar-ring: 25 83% 53%;
+
+    --success: 152 60% 40%;
+    --success-foreground: 0 0% 100%;
+    --warning: 40 90% 50%;
+    --warning-foreground: 0 0% 10%;
+    --info: 210 80% 55%;
+    --info-foreground: 0 0% 100%;
+
+    font-family: 'Montserrat', sans-serif;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+  body {
+    @apply bg-background text-foreground antialiased;
+  }
+  h1, h2, h3, h4, h5, h6 {
+    font-family: 'Raleway', sans-serif;
+  }
+}
+
+@layer utilities {
+  .font-heading {
+    font-family: 'Raleway', sans-serif;
+  }
+  .font-body {
+    font-family: 'Montserrat', sans-serif;
+  }
+}

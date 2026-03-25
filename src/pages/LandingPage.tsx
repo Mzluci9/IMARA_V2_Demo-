@@ -292,9 +292,9 @@ export default function LandingPage() {
             <span className="font-heading font-bold text-lg">IMARA BD Marketplace</span>
           </div>
           <p className="text-primary-foreground/60 text-sm">© 2026 IMARA. Institutional-grade execution infrastructure for business development services.</p>
-          <Button onClick={enterPlatform} variant="outline" className="border-primary-foreground/30 text-primary-foreground hover:bg-primary-foreground/10 font-semibold text-sm">
+          {/* <Button onClick={enterPlatform} variant="outline" className="border-primary-foreground/30 text-primary-foreground hover:bg-primary-foreground/10 font-semibold text-sm">
             Log In <ArrowRight className="ml-1.5 h-4 w-4" />
-          </Button>
+          </Button> */}
         </div>
       </footer>
     </div>

@@ -171,7 +171,7 @@ export default function LandingPage() {
         <div className="max-w-6xl mx-auto">
           <div className="text-center mb-16">
             <p className="text-secondary font-heading font-bold text-sm tracking-widest uppercase mb-2">Core Capabilities</p>
-            <h2 className="font-heading font-extrabold text-3xl md:text-4xl text-foreground">Built for Scale, Trust, and Performance</h2>
+            <h2 className="font-heading font-extrabold text-3xl md:text-4xl text-foreground">Built for Scale, Trust and Performance</h2>
           </div>
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
             {valueCards.map((card, i) => (

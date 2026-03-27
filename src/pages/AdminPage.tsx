@@ -44,7 +44,7 @@ export default function AdminPage() {
       )}
 
       <div className="space-y-3">
-        <h2 className="font-heading font-semibold">All Demands — Status Override</h2>
+        <h2 className="font-heading font-semibold">All Demands Status Override</h2>
         {demands.map((d, i) => (
           <motion.div key={d.id} initial={{ opacity: 0 }} animate={{ opacity: 1 }} transition={{ delay: i * 0.03 }} className="bg-card rounded-xl p-4 shadow-sm border flex items-center justify-between">
             <div className="flex items-center gap-3">
